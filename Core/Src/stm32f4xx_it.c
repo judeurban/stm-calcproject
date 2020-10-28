@@ -61,10 +61,10 @@ const GPIO_TypeDef* _KEYPAD_COLUMN_GPIO_PORT[] =
 
 const uint16_t _KEYPAD_COLUMN_GPIO_PIN[] =
 {
-  GPIO_PIN_1,
-  GPIO_PIN_13,
+  GPIO_PIN_15,
   GPIO_PIN_14,
-  GPIO_PIN_15
+  GPIO_PIN_13,
+  GPIO_PIN_1
 };
 
 const GPIO_TypeDef* _KEYPAD_ROW_GPIO_PORT[] =
@@ -283,40 +283,41 @@ char KeyPadGetChar(uint16_t	key)
     case 0x0000:
       return 0;
 		case 0x0101:
-			return '1';
-		case 0x0201:
-			return '2';
-		case 0x0401:
-			return '3';
-		case 0x0801:
-			return 'A';
-		case 0x0102:
-			return '4';
-		case 0x0202:
-			return '5';
-		case 0x0402:
-			return '6';
-		case 0x0802:
-			return 'B';
-		case 0x0104:
-			return '7';
-		case 0x0204:
-			return '8';
-		case 0x0404:
-			return '9';
-		case 0x0804:
-			return 'C';
-		case 0x0108:
 			return '*';
-		case 0x0208:
+		case 0x0201:
+			return '7';
+		case 0x0401:
+			return '4';
+		case 0x0801:
+			return '1';
+		case 0x0102:
 			return '0';
-		case 0x0408:
+		case 0x0202:
+			return '8';
+		case 0x0402:
+			return '5';
+		case 0x0802:
+			return '2';
+		case 0x0104:
 			return '#';
-		case 0x0808:
+		case 0x0204:
+			return '9';
+
+		case 0x0404:
+			return '6';
+		case 0x0804:
+			return '3';
+		case 0x0108:
 			return 'D';
+		case 0x0208:
+			return 'C';
+		case 0x0408:
+			return 'B';
+		case 0x0808:
+			return 'A'; //
 
 		default:
-			return 0;
+			return 'null';
 	}
 }
 /* USER CODE END 1 */
