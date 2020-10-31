@@ -107,6 +107,8 @@ int main(void)
 
   char sendMessage[]="send message\r\n";
   char newLine[]="\r\n";
+  char message[16];
+char keyPressed[2];
 
   screenClear();
 
@@ -121,8 +123,37 @@ int main(void)
 
 	 // key = keyPadScan();
 	  if(keyChar != 0){
-		  HAL_Delay(1000);
+
+		  int keyChosen = keyChar;
+
+
+		  if (keyChosen < 43) {							//* or #
+			  char keyPressed[2] = {keyChar, '\0'};\
+		//	  char message[7] = "symbol";
+
+
+		  } else if (keyChosen > 47 && keyChosen < 58 ){		//keyChar is a number 0 through 9
+			  char keyPressed[2] = {keyChar, '\0'};
+		//	  int keyValue = atoi(keyPressed);
+			  char message[] = "integer";
+			  screenClear();
+			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
+
+
+	//		  result = keyValue*10;
+	//		  char answer = {keyValue, '\0'};
+
+		  } else if (keyChosen > 64) {
+			  char keyPressed[2] = {keyChar, '\0'};
+			  char message[] = "letter";
+			  screenClear();
+			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
+		  }
+
+
+		  HAL_Delay(50);
 		  keyChar = 0;
+
 
 	  }
     /* USER CODE END WHILE */
