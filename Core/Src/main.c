@@ -136,19 +136,32 @@ char keyPressed[2];
 			  char keyPressed[2] = {keyChar, '\0'};
 		//	  int keyValue = atoi(keyPressed);
 			  char message[] = "integer";
-			  screenClear();
-			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
+			  HAL_UART_Transmit(&huart1, keyPressed, sizeof(keyPressed) -1, HAL_MAX_DELAY);
 
 
 	//		  result = keyValue*10;
 	//		  char answer = {keyValue, '\0'};
 
-		  } else if (keyChosen > 64) {
+		  } else if (keyChosen == 65) {
 			  char keyPressed[2] = {keyChar, '\0'};
-			  char message[] = "letter";
-			  screenClear();
+			  char message[] = " + ";
+			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
+		  }	else if (keyChosen == 66) {
+			  char keyPressed[2] = {keyChar, '\0'};
+			  char message[] = " - ";
+			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
+		  }	else if (keyChosen == 67) {
+			  char keyPressed[2] = {keyChar, '\0'};
+			  char message[] = " * ";
+			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
+		  }	else if (keyChosen == 68) {
+			  char keyPressed[2] = {keyChar, '\0'};
+			  char message[] = " / ";
 			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
 		  }
+
+
+
 
 
 		  HAL_Delay(50);
