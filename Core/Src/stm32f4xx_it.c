@@ -283,7 +283,7 @@ char KeyPadGetChar(uint16_t	key)
     case 0x0000:
       return 0;
 		case 0x0101:
-			return '*';
+			return '.';
 		case 0x0201:
 			return '7';
 		case 0x0401:

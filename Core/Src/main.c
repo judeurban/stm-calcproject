@@ -114,9 +114,12 @@ int main(void)
 	  char RawString[32];
 	  char NumberOneString[16];
 	  char NumberTwoString[16];
+	  char FunctionString[1];
 	  float NumberOneFloat;
 	  float NumberTwoFloat;
 	  float ComputationResult;
+	  char testmessage1[] = "we are on the first number!!";
+	  char testmessage2[] = "we are on the second number!!";
 
   screenClear();
 
@@ -135,13 +138,40 @@ int main(void)
 		  //if we get any input, save it to a character string!
 		  RawString[CursorPosition] = keyChar;
 
+		  //write to display
+	//	  screenClear();
+	//	  HAL_UART_Transmit(&huart1, RawString, CursorPosition + 1, HAL_MAX_DELAY);
 
-		  //transmit to display
-		  screenClear();
-		  HAL_UART_Transmit(&huart1, RawString, CursorPosition + 1, HAL_MAX_DELAY);
+		  //while we are on the first number
+		  //while 0 < keychar < 9 OR keyChar is a . decimal place
+
+		  if (((keyChar > 47 && keyChar < 58) || keyChar == 46) && NumberLocation == 1) {
+			  NumberOneString[CursorPosition] = keyChar;
+			  screenClear();
+			//  HAL_UART_Transmit(&huart1, NumberOneString, CursorPosition + 1, HAL_MAX_DELAY);
+		  }
+
+		  if (keyChar == 43 || keyChar == 45 || keyChar == 42 || keyChar == 47) {
+			  FunctionString[1] = keyChar;
+			  NumberLocation == 2;
+		  }
+
+		  //while we are on the second number
+		  //while 0 < keychar < 9 OR keyChar is a . decimal place
+
+		  if (((keyChar > 47 && keyChar < 58) || keyChar == 46) && NumberLocation == 2) {
+			  NumberTwoString[CursorPosition] = keyChar;
+			  screenClear();
+			//  HAL_UART_Transmit(&huart1, NumberTwoString, CursorPosition + 1, HAL_MAX_DELAY);
+		  }
 
 		  keyChar = 0;
 		  CursorPosition++;
+
+
+
+		  //while key # == 0, else calculate result
+		  // if star == 1, calculate, print result
 
 
 	  }
