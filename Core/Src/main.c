@@ -132,29 +132,16 @@ int main(void)
 	 // key = keyPadScan();
 	  if(keyChar != 0){
 
-		  int KeyNumberValue = keyChar - 48;
-
-		  /*
-		  //if it's a number, we want to return a number
-		  if (keyChar > 47 && keyChar < 58) {
-			  int KeyNumberValue = keyChar - 48;
-		  }
-		  //if keyChar is a letter, we want to return a letter
-		  else if (keyChar > 64){
-			 KeyNumberValue = keyChar;
-		  }
-
-*/
 		  //if we get any input, save it to a character string!
+		  RawString[CursorPosition] = keyChar;
 
-		  RawString[CursorPosition] = KeyNumberValue;
-
+		  screenClear();
 		  HAL_Delay(50);
 		  keyChar = 0;
 		  CursorPosition++;
 
 		  //transmit to display
-
+		  HAL_UART_Transmit(&huart1, RawString, sizeof(RawString) -1, HAL_MAX_DELAY);
 
 	  }
 
