@@ -135,13 +135,14 @@ int main(void)
 		  //if we get any input, save it to a character string!
 		  RawString[CursorPosition] = keyChar;
 
+
+		  //transmit to display
 		  screenClear();
-		  HAL_Delay(50);
+		  HAL_UART_Transmit(&huart1, RawString, CursorPosition + 1, HAL_MAX_DELAY);
+
 		  keyChar = 0;
 		  CursorPosition++;
 
-		  //transmit to display
-		  HAL_UART_Transmit(&huart1, RawString, sizeof(RawString) -1, HAL_MAX_DELAY);
 
 	  }
 
