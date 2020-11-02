@@ -105,10 +105,18 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  char sendMessage[]="send message\r\n";
-  char newLine[]="\r\n";
-  char message[16];
-char keyPressed[2];
+	  char sendMessage[]="send message\r\n";
+	  char newLine[]="\r\n";
+	  char message[16];
+	  char keyPressed[2];
+	  int CursorPosition = 0;
+	  int NumberLocation = 1;
+	  char RawString;
+	  char NumberOneString[16];
+	  char NumberTwoString[16];
+	  float NumberOneFloat;
+	  float NumberTwoFloat;
+	  float ComputationResults;
 
   screenClear();
 
@@ -124,51 +132,16 @@ char keyPressed[2];
 	 // key = keyPadScan();
 	  if(keyChar != 0){
 
-		  int keyChosen = keyChar;
+		  //if we get any input, save it to a character string!
 
-
-		  if (keyChosen < 43) {							//* or #
-			  char keyPressed[2] = {keyChar, '\0'};\
-		//	  char message[7] = "symbol";
-
-
-		  } else if (keyChosen > 47 && keyChosen < 58 ){		//keyChar is a number 0 through 9
-			  char keyPressed[2] = {keyChar, '\0'};
-		//	  int keyValue = atoi(keyPressed);
-			  char message[] = "integer";
-			  HAL_UART_Transmit(&huart1, keyPressed, sizeof(keyPressed) -1, HAL_MAX_DELAY);
-
-
-	//		  result = keyValue*10;
-	//		  char answer = {keyValue, '\0'};
-
-		  } else if (keyChosen == 65) {
-			  char keyPressed[2] = {keyChar, '\0'};
-			  char message[] = " + ";
-			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
-		  }	else if (keyChosen == 66) {
-			  char keyPressed[2] = {keyChar, '\0'};
-			  char message[] = " - ";
-			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
-		  }	else if (keyChosen == 67) {
-			  char keyPressed[2] = {keyChar, '\0'};
-			  char message[] = " * ";
-			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
-		  }	else if (keyChosen == 68) {
-			  char keyPressed[2] = {keyChar, '\0'};
-			  char message[] = " / ";
-			  HAL_UART_Transmit(&huart1, message, sizeof(message) -1, HAL_MAX_DELAY);
-		  }
-
-
-
-
+		  NumberOneString[CursorPosition]
 
 		  HAL_Delay(50);
 		  keyChar = 0;
 
 
 	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
