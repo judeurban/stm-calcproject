@@ -111,12 +111,12 @@ int main(void)
 	  char keyPressed[2];
 	  int CursorPosition = 0;
 	  int NumberLocation = 1;
-	  char RawString;
+	  char RawString[32];
 	  char NumberOneString[16];
 	  char NumberTwoString[16];
 	  float NumberOneFloat;
 	  float NumberTwoFloat;
-	  float ComputationResults;
+	  float ComputationResult;
 
   screenClear();
 
@@ -132,12 +132,26 @@ int main(void)
 	 // key = keyPadScan();
 	  if(keyChar != 0){
 
+		  int KeyNumberValue = keyChar - 48;
+
+		  /*
+		  //if it's a number, we want to return a number
+		  if (keyChar > 47 && keyChar < 58) {
+			  int KeyNumberValue = keyChar - 48;
+		  }
+		  //if keyChar is a letter, we want to return a letter
+		  else if (keyChar > 64){
+			 KeyNumberValue = keyChar;
+		  }
+
+*/
 		  //if we get any input, save it to a character string!
 
-		  NumberOneString[CursorPosition]
+		  RawString[CursorPosition] = KeyNumberValue;
 
 		  HAL_Delay(50);
 		  keyChar = 0;
+		  CursorPosition++;
 
 
 	  }
