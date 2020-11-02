@@ -308,13 +308,13 @@ char KeyPadGetChar(uint16_t	key)
 		case 0x0804:
 			return '3';
 		case 0x0108:
-			return 'D';
+			return '/';
 		case 0x0208:
-			return 'C';
+			return '*';
 		case 0x0408:
-			return 'B';
+			return '-';
 		case 0x0808:
-			return 'A'; //
+			return '+'; //
 
 		default:
 			return 'null';

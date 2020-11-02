@@ -153,6 +153,8 @@ int main(void)
 		  keyChar = 0;
 		  CursorPosition++;
 
+		  //transmit to display
+
 
 	  }
 
